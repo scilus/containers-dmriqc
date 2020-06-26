@@ -18,7 +18,7 @@ RUN apt-get -y install libfftw3-dev
 RUN apt-get -y install libtiff5-dev
 RUN apt-get -y install clang
 RUN apt-get -y install libblas-dev liblapack-dev
-COPY --from=dependencies /mrtrix3/bin ./mrtrix3/bin
+COPY --from=dependencies /mrtrix3 ./mrtrix3
 ENV PATH=/mrtrix3/bin:$PATH
 
 RUN apt-get -y install fonts-freefont-ttf
