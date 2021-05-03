@@ -1,4 +1,4 @@
-FROM scilus/scilus-base:latest AS dependencies
+FROM scilus/base-scilus:latest AS dependencies
 FROM scilus/docker-vtk-8.2.0:latest
 
 ENV PYTHONPATH=/usr/lib/x86_64-linux-gnu/python3.6/site-packages/:/usr/bin/:$PYTHONPATH
