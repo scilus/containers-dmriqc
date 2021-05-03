@@ -1,4 +1,4 @@
-FROM scilus/singularity-base-tractoflow:latest AS dependencies
+FROM scilus/scilus-base:latest AS dependencies
 FROM scilus/docker-vtk-8.2.0:latest
 
 ENV PYTHONPATH=/usr/lib/x86_64-linux-gnu/python3.6/site-packages/:/usr/bin/:$PYTHONPATH
@@ -23,11 +23,10 @@ ENV PATH=/mrtrix3/bin:$PATH
 
 RUN apt-get -y install fonts-freefont-ttf
 
+ENV SCILPY_VERSION="1.1.0"
 WORKDIR /
-RUN git clone https://github.com/GuillaumeTh/dmriqcpy.git
-WORKDIR /dmriqcpy
-RUN pip3 install git+https://github.com/scilus/scilpy.git#egg=scilpy
-RUN pip3 install git+https://github.com/GuillaumeTh/dmriqcpy.git
+RUN pip3 install git+https://github.com/scilus/scilpy.git@${SCILPY_VERSION}
+RUN pip3 install git+https://github.com/scilus/dmriqcpy.git
 RUN pip3 uninstall -y vtk
 
 # Use offscreen backend
