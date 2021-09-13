@@ -23,9 +23,7 @@ ENV PATH=/mrtrix3/bin:$PATH
 
 RUN apt-get -y install fonts-freefont-ttf
 
-ENV SCILPY_VERSION="1.1.0"
 WORKDIR /
-RUN pip3 install git+https://github.com/scilus/scilpy.git@${SCILPY_VERSION}
 RUN pip3 install git+https://github.com/scilus/dmriqcpy.git
 RUN pip3 uninstall -y vtk
 
