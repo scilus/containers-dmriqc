@@ -25,7 +25,7 @@ RUN apt-get -y install fonts-freefont-ttf
 
 WORKDIR /
 ENV DMRIQCPY_VERSION="0.1.5-rc9"
-RUN wget https://github.com/scilus/dmriqcpy/archive/${DMRIQCPY_VERSION}.zip
+RUN wget https://github.com/scilus/dmriqcpy/archive/refs/tags/${DMRIQCPY_VERSION}.zip
 RUN unzip ${DMRIQCPY_VERSION}.zip
 
 RUN pip3 uninstall -y vtk
