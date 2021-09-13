@@ -7,7 +7,7 @@ ENV LC_CTYPE en_US.UTF-8
 ENV LANG en_US.UTF-8
 
 RUN apt-get update && apt-get install -y language-pack-en
-RUN apt-get install -y libblas-dev liblapack-dev gfortran
+RUN apt-get install -y libblas-dev liblapack-dev gfortran wget unzip
 
 WORKDIR /
 RUN apt-get update
@@ -24,7 +24,10 @@ ENV PATH=/mrtrix3/bin:$PATH
 RUN apt-get -y install fonts-freefont-ttf
 
 WORKDIR /
-RUN pip3 install git+https://github.com/scilus/dmriqcpy.git
+ENV DMRIQCPY_VERSION="0.1.5-rc9"
+RUN wget https://github.com/scilus/dmriqcpy/archive/${DMRIQCPY_VERSION}.zip
+RUN unzip ${DMRIQCPY_VERSION}.zip
+
 RUN pip3 uninstall -y vtk
 
 # Use offscreen backend
