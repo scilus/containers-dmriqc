@@ -3,7 +3,7 @@ name: Build Docker with selected version
 on:
   workflow_dispatch:
     inputs:
-      scilpy_commit:
+      dmriqcpy_commit:
         description: Dmriqcpy commit id
         required: true
 
