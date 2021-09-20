@@ -27,6 +27,10 @@ WORKDIR /
 ENV DMRIQCPY_VERSION="0.1.5-rc9"
 RUN wget https://github.com/scilus/dmriqcpy/archive/refs/tags/${DMRIQCPY_VERSION}.zip
 RUN unzip ${DMRIQCPY_VERSION}.zip
+RUN mv dmriqcpy-${DMRIQCPY_VERSION} dmriqcpy
+
+WORKDIR /dmriqcpy
+RUN pip3 install -e .
 
 RUN pip3 uninstall -y vtk
 
